@@ -12,3 +12,17 @@
     margin: 1rem 0;
   }
 }
+
+/* Full-viewport, click-through canvas behind content */
+#particles-js {
+  position: fixed;
+  inset: 0;
+  z-index: -1;       /* behind sidebar/content */
+  pointer-events: none;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #particles-js { display: none !important; }
+}
+
