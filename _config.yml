@@ -285,6 +285,7 @@ hydejack:
     precache_assets:
       - /assets/img/swipe.svg
 
+repository: btvvardhan/btvv.github.io
 
 # Collections
 # ----------------------------------------------------------------------------------------
