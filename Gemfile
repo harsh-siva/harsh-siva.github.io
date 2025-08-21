@@ -9,6 +9,11 @@ source 'https://rubygems.org'
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
 # gem "jekyll", "~> 3.9"
+# Happy Jekylling!
+#gem "jekyll", "~> 4.3"
+
+gem "jekyll-theme-hydejack", "~> 9.1"
+
 
 group :jekyll_plugins do
   gem 'github-pages'
