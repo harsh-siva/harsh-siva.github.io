@@ -1,33 +1,61 @@
 (function () {
-  const ENDPOINT = "https://rag-netlify.netlify.app/.netlify/functions/chatbot"; // <-- replace
+  const ENDPOINT = "https://rag-netlify.netlify.app/.netlify/functions/chatbot";
 
   function sid() {
     const k = "chatbot_session_id";
     let s = localStorage.getItem(k);
-    if (!s) { s = crypto.randomUUID ? crypto.randomUUID() : String(Date.now()); localStorage.setItem(k, s); }
+    if (!s) { s = (crypto.randomUUID?.() || String(Date.now())); localStorage.setItem(k, s); }
     return s;
   }
 
-  async function askGemini(message) {
-    const res = await fetch(ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message, sessionId: sid() })
-    });
-    if (!res.ok) throw new Error(await res.text());
-    const { reply } = await res.json();
-    return reply;
+  async function askGemini(message, msTimeout = 20000) {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort("timeout"), msTimeout);
+
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message, sessionId: sid() }),
+        signal: ctrl.signal
+      });
+
+      // Log network details for debugging
+      console.debug("[chatbot] status:", res.status, res.statusText);
+
+      // If not OK, show the response text so you see the real error
+      if (!res.ok) {
+        const txt = await res.text().catch(() => "");
+        throw new Error(`HTTP ${res.status} ${res.statusText} ${txt}`);
+      }
+
+      // Parse as JSON even if content-type is text/plain
+      const data = await res.json().catch(async () => {
+        const txt = await res.text();
+        throw new Error("JSON parse failed. Body: " + txt);
+      });
+
+      console.debug("[chatbot] body:", data);
+
+      if (!data || typeof data.reply !== "string") {
+        throw new Error("Malformed JSON: missing { reply }");
+      }
+      return data.reply;
+    } finally {
+      clearTimeout(t);
+    }
   }
 
-  // —— UI ——
+  // —— Minimal floating UI ——
   const style = document.createElement('style');
   style.textContent = `
   .cbt-btn{position:fixed;right:16px;bottom:16px;padding:12px 14px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.2);background:#111;color:#fff;cursor:pointer;z-index:9999}
   .cbt-panel{position:fixed;right:16px;bottom:76px;width:320px;max-height:60vh;background:#fff;border:1px solid #ddd;border-radius:14px;box-shadow:0 12px 28px rgba(0,0,0,.18);display:flex;flex-direction:column;overflow:hidden;z-index:9999}
   .cbt-head{padding:10px 12px;font-weight:600;border-bottom:1px solid #eee}
-  .cbt-log{padding:12px;overflow:auto;flex:1;font-size:.95rem}
+  .cbt-log{padding:12px;overflow:auto;flex:1;font-size:.95rem;white-space:pre-wrap}
   .cbt-msg{margin:6px 0}
   .cbt-msg.me{color:#0a58ca}
+  .cbt-msg.err{color:#b00020}
   .cbt-foot{display:flex;gap:6px;padding:8px;border-top:1px solid #eee}
   .cbt-foot input{flex:1;padding:8px;border:1px solid #ddd;border-radius:10px}
   .cbt-foot button{padding:8px 10px;border-radius:10px;border:1px solid #111;background:#111;color:#fff}
@@ -55,12 +83,13 @@
   const input = panel.querySelector('#cbt-input');
   const send = panel.querySelector('#cbt-send');
 
-  function addMsg(text, me=false){
+  function addMsg(text, cls=""){
     const p=document.createElement('div');
-    p.className = 'cbt-msg' + (me?' me':'');
+    p.className = 'cbt-msg ' + cls;
     p.textContent = text;
     log.appendChild(p);
     log.scrollTop = log.scrollHeight;
+    return p;
   }
 
   btn.onclick = () => {
@@ -71,14 +100,16 @@
   async function sendMsg(){
     const q = (input.value || "").trim();
     if (!q) return;
-    addMsg(q, true);
+    addMsg(q, "me");
     input.value = "";
     const hold = addMsg("…thinking…");
     try {
       const a = await askGemini(q);
       hold.textContent = a;
     } catch (e) {
-      hold.textContent = "Error: " + (e.message || e);
+      hold.classList.add("err");
+      hold.textContent = "Error: " + (e?.message || e);
+      console.error("chatbot error:", e);
     }
   }
 
