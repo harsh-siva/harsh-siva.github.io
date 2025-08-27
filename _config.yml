@@ -29,7 +29,7 @@ description:           >
   with a focus on personal sites that are meant to impress.
 
 # A shorter description for the sidebar.
-tagline:               Change `tagline` in `_config.yml`
+tagline:               Ask my chatbot about me!
 
 # A list of keywords for your blog
 keywords:              []
@@ -59,6 +59,8 @@ menu:
     url:               /projects/
   - title:             Resume
     url:               /resume/
+  - title:             Chatbot
+    url:               /chatbot/
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
 legal:
