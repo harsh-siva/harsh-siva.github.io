@@ -1,5 +1,5 @@
 (function () {
-  const ENDPOINT = "https://<your-site>.netlify.app/.netlify/functions/chatbot"; // <-- replace
+  const ENDPOINT = "https://rag-netlify.netlify.app/.netlify/functions/chatbot"; // <-- replace
 
   function sid() {
     const k = "chatbot_session_id";
