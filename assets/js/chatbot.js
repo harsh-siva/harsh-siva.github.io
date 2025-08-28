@@ -231,6 +231,13 @@
   const log   = panel.querySelector('#cbt-log');
   const input = panel.querySelector('#cbt-input');
   const send  = panel.querySelector('#cbt-send');
+  const closeBtn = panel.querySelector('.cbt-close');
+  closeBtn.onclick = () => {
+    panel.classList.remove('open');
+  };
+
+
+
 
   // ==== HELPERS ====
   function addMsg(text, cls=""){
