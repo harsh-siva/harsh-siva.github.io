@@ -72,59 +72,33 @@
   const style = document.createElement('style');
   style.textContent = `
   /* Chatbot button */
-    .cbt-btn {
-    position: fixed;
-    left: 16px;
-    bottom: 16px;
-    width: 52px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: #fff;                                /* white background */
-    color: var(--accent-color, #268bd2);             /* icon = Hydejack green */
-    border: 2px solid var(--accent-color, #268bd2);  /* green ring */
-    box-shadow: 0 6px 20px rgba(0,0,0,.15);
-    cursor: pointer;
-    z-index: 9999;
-    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  .cbt-btn{
+    position:fixed; left:16px; bottom:16px;
+    width:52px; height:52px; display:flex; align-items:center; justify-content:center;
+    border-radius:50%;
+    background: var(--accent-color, #268bd2);   /* green circle */
+    color:#fff;                                  /* icon = white */
+    border:none; box-shadow:0 6px 20px rgba(0,0,0,.18);
+    cursor:pointer; z-index:9999;
+    transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
   }
-  .cbt-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 24px rgba(0,0,0,.18);
-    background: #f7fbff; /* subtle tint */
-  }
+  .cbt-btn:hover{ transform:scale(1.06); box-shadow:0 8px 24px rgba(0,0,0,.22); filter:brightness(1.05); }
+  .cbt-btn svg{ display:block; }  /* ICON_SVG uses currentColor → white here */
+
   .cbt-btn img { width: 26px; height: 26px; display:block; object-fit: contain; }
-  .cbt-btn svg { display:block; }
 
   /* Chatbot panel */
-  .cbt-panel {
-    position: fixed;
-    left: 16px;               /* match button */
-    bottom: 76px;
-    width: 320px;
-    max-height: 60vh;
-    background: var(--content-bg, #fff);
-    border: 1px solid #ddd;
-    border-radius: 14px;
-    box-shadow: 0 12px 28px rgba(0,0,0,.18);
-    display: none;            /* toggled via JS */
-    flex-direction: column;
-    overflow: hidden;
-    font-family: inherit;
-    z-index: 9999;
+  .cbt-panel{
+    position:fixed; left:16px; bottom:76px; width:320px; max-height:60vh;
+    background:#fff;                      /* solid white card */
+    border:1px solid rgba(0,0,0,.08);
+    border-radius:14px;
+    box-shadow:0 18px 40px rgba(0,0,0,.22);
+    display:none; flex-direction:column; overflow:hidden; font-family:inherit; z-index:9999;
+    transform:translateY(12px); opacity:0; transition:transform .2s ease, opacity .2s ease;
+  }
+  .cbt-panel.open{ display:flex; transform:translateY(0); opacity:1; }
 
-    /* open animation */
-    transform: translateY(12px);
-    opacity: 0;
-    transition: transform .2s ease, opacity .2s ease;
-  }
-  .cbt-panel.open {
-    display: flex;
-    transform: translateY(0);
-    opacity: 1;
-  }
 
   .cbt-head {
     padding: 10px 12px;
@@ -154,48 +128,22 @@
   .cbt-close:hover { opacity: 1; }
 
 
-  .cbt-log {
-    padding: 12px;
-    overflow-y: auto;
-    flex: 1;
-    font-size: 0.95rem;
-    white-space: pre-wrap;
-    background: var(--content-bg, #fff);
-  }
+  .cbt-log{ padding:12px; overflow-y:auto; flex:1; font-size:.95rem; white-space:pre-wrap; background:#fff; }
+  .cbt-msg{ margin:6px 0; }
+  .cbt-msg.me{ color:var(--accent-color, #268bd2); font-weight:500; }
+  .cbt-msg.err{ color:#b00020; font-style:italic; }
 
-  .cbt-msg { margin: 6px 0; }
-  .cbt-msg.me { color: var(--accent-color, #268bd2); font-weight: 500; }
-  .cbt-msg.err { color: #b00020; font-style: italic; }
+  .cbt-foot{ display:flex; gap:6px; padding:8px; border-top:1px solid rgba(0,0,0,.06); background:#fff; }
+  .cbt-foot input{
+    flex:1; padding:8px; border:1px solid rgba(0,0,0,.12); border-radius:10px; font-family:inherit;
+  }
+  .cbt-foot button{
+    padding:8px 10px; border-radius:10px; border:none;
+    background: var(--accent-color, #268bd2); color:#fff; font-weight:500; cursor:pointer;
+    transition:filter .2s ease;
+  }
+  .cbt-foot button:hover{ filter:brightness(1.05); }
 
-  .cbt-foot {
-    display: flex;
-    gap: 6px;
-    padding: 8px;
-    border-top: 1px solid #eee;
-    background: var(--content-bg, #fff);
-  }
-
-  .cbt-foot input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-family: inherit;
-  }
-
-  .cbt-foot button {
-    padding: 8px 10px;
-    border-radius: 10px;
-    border: none;
-    background: var(--accent-color, #268bd2);
-    color: #fff;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.2s ease;
-  }
-  .cbt-foot button:hover {
-    background: var(--accent-color-dark, #1565c0);
-  }
   `;
   document.head.appendChild(style);
 
