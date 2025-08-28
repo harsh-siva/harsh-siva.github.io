@@ -10,16 +10,18 @@
   const IMG_SRC = "/btvv.github.io/assets/img/chatbot-logo.png"; // change if USE_IMAGE = true
 
   // Inline SVG icon (default). Inherits currentColor → looks perfect on accent background.
+ // Inline SVG icon (forced white color)
   const ICON_SVG = `
     <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" role="img" focusable="false">
       <path d="M4 5.5h12a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H9l-5 4v-4H4a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3Z"
-            fill="none" stroke="currentColor" stroke-width="1.8"
+            fill="none" stroke="#ffffff" stroke-width="1.8"
             stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="9" cy="11" r="1" fill="currentColor"/>
-      <circle cx="12" cy="11" r="1" fill="currentColor"/>
-      <circle cx="15" cy="11" r="1" fill="currentColor"/>
+      <circle cx="9" cy="11" r="1" fill="#ffffff"/>
+      <circle cx="12" cy="11" r="1" fill="#ffffff"/>
+      <circle cx="15" cy="11" r="1" fill="#ffffff"/>
     </svg>
   `;
+
 
   // ==== SESSION ====
   function sid() {
