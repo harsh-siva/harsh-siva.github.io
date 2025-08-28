@@ -14,11 +14,11 @@
   const ICON_SVG = `
     <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" role="img" focusable="false">
       <path d="M4 5.5h12a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H9l-5 4v-4H4a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3Z"
-            fill="none" stroke="#ffffff" stroke-width="1.8"
+            fill="none" stroke="currentColor" stroke-width="1.8"
             stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="9" cy="11" r="1" fill="#ffffff"/>
-      <circle cx="12" cy="11" r="1" fill="#ffffff"/>
-      <circle cx="15" cy="11" r="1" fill="#ffffff"/>
+      <circle cx="9" cy="11" r="1" fill="currentColor"/>
+      <circle cx="12" cy="11" r="1" fill="currentColor"/>
+      <circle cx="15" cy="11" r="1" fill="currentColor"/>
     </svg>
   `;
 
@@ -83,7 +83,7 @@
     justify-content: center;
     border-radius: 50%;
     background: var(--accent-color, #268bd2);   /* Hydejack accent color */
-    color: #fff;                                 /* icon color */
+    color: var(--accent-color, #268bd2);                                 /* icon color */
     font-size: 22px;
     cursor: pointer;
     box-shadow: 0 6px 20px rgba(0,0,0,.25);
@@ -138,6 +138,21 @@
   .cbt-head .cbt-head-icon {
     width: 18px; height: 18px; display:block; color:#fff;
   }
+
+  .cbt-close {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    line-height: 1;
+    color: var(--accent-color, #268bd2);
+    cursor: pointer;
+    padding: 0 4px;
+  }
+  .cbt-close:hover {
+    color: var(--accent-color-dark, #195ca9ff);
+  }
+  
+
 
   .cbt-log {
     padding: 12px;
@@ -204,6 +219,7 @@
     <div class="cbt-head">
       <span class="cbt-head-icon">${ICON_SVG}</span>
       <span>Ask about Teja</span>
+      <button class="cbt-close" title="Close chat">×</button>
     </div>
     <div class="cbt-log" id="cbt-log"></div>
     <div class="cbt-foot">
