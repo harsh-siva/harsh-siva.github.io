@@ -72,9 +72,9 @@
   const style = document.createElement('style');
   style.textContent = `
   /* Chatbot button */
-  .cbt-btn {
+    .cbt-btn {
     position: fixed;
-    left: 16px;               /* bottom-left */
+    left: 16px;
     bottom: 16px;
     width: 52px;
     height: 52px;
@@ -82,18 +82,18 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: var(--accent-color, #268bd2);   /* Hydejack accent color */
-    color: var(--accent-color, #268bd2);                                 /* icon color */
-    font-size: 22px;
+    background: #fff;                                /* white background */
+    color: var(--accent-color, #268bd2);             /* icon = Hydejack green */
+    border: 2px solid var(--accent-color, #268bd2);  /* green ring */
+    box-shadow: 0 6px 20px rgba(0,0,0,.15);
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(0,0,0,.25);
-    border: none;
     z-index: 9999;
-    transition: background 0.2s ease, transform 0.2s ease;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
   }
   .cbt-btn:hover {
-    background: var(--accent-color-dark, #1565c0);
     transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0,0,0,.18);
+    background: #f7fbff; /* subtle tint */
   }
   .cbt-btn img { width: 26px; height: 26px; display:block; object-fit: contain; }
   .cbt-btn svg { display:block; }
@@ -133,25 +133,25 @@
     color: #fff;
     display: flex;
     align-items: center;
+    justify-content: space-between;  /* space for close button */
     gap: 8px;
   }
   .cbt-head .cbt-head-icon {
     width: 18px; height: 18px; display:block; color:#fff;
   }
 
+  /* Close button — white on green header */
   .cbt-close {
     background: transparent;
     border: none;
     font-size: 20px;
     line-height: 1;
-    color: var(--accent-color, #268bd2);
+    color: #fff;                     /* high contrast */
     cursor: pointer;
     padding: 0 4px;
+    opacity: .9;
   }
-  .cbt-close:hover {
-    color: var(--accent-color-dark, #195ca9ff);
-  }
-  
+  .cbt-close:hover { opacity: 1; }
 
 
   .cbt-log {
