@@ -20,7 +20,7 @@
 lang:                  en
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 Teja Vishnu Vardhan Boddu
+title:                 Harshvardhan Sivasubramanian
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
@@ -42,8 +42,8 @@ logo:                  /assets/img/logo.png
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
   # Used by `jekyll-feed`:
-  name:                <Teja Vishnu Vardhan Boddu>
-  email:               <btvvardhan@gmail.com>
+  name:                <THarshvardhan Sivasubramanian>
+  email:               <harshofficial008@gmail.com>
   # # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
