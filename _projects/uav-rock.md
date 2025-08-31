@@ -10,6 +10,9 @@ links:
     url: https://github.com/btvvardhan/RAS598_project
   - title: Final Report
     url: /assets/projects/space-robotics/space-robotics-report.pdf
+  - title: Demo Video
+    url: https://youtu.be/wzYCpQy7FVQ
+
 ---
 
 ## Autonomous UAV for Object Correspondence in Digital Twin Terrains
@@ -66,7 +69,7 @@ The UAV autonomously flies over a photogrammetry-generated terrain, detects rock
 
 ---
 
-## Video Demos
+## Demo Video
 
 <div class="video-wrap">
   <iframe src="https://youtu.be/wzYCpQy7FVQ" 
