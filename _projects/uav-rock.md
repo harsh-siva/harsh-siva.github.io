@@ -11,7 +11,7 @@ links:
   - title: Final Report
     url: /assets/projects/space-robotics/space-robotics-report.pdf
   - title: Demo Video
-    url: https://youtu.be/wzYCpQy7FVQ
+    url: https://www.youtube.com/watch?v=wzYCpQy7FVQ
 
 ---
 
