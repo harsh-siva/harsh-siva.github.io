@@ -287,7 +287,7 @@ hydejack:
     precache_assets:
       - /assets/img/swipe.svg
 
-repository: btvvardhan/btvv.github.io
+repository: harsh-siva/harsh-siva.github.io
 
 # Collections
 # ----------------------------------------------------------------------------------------
@@ -367,10 +367,10 @@ plugins:
 
 # Used on index and about sites
 social:
-  name: Teja Vishnu Vardhan Boddu
+  name: Harshvardhan Sivasubramanian
   links:
-    #- https://twitter.com/btvvardhan
-    - https://github.com/btvvardhan
+    #-
+    - https://github.com/harsh-siva
 
 
 # Plugin Configs
