@@ -9,11 +9,20 @@ order: 1
 
 ## About
 
-Hi, I'm **Teja Vishnu Vardhan Boddu**.<br>
-I'm a Master's student in **Robotics & Autonomous Systems** at **Arizona State University (4.0/4.0 GPA)**.  
-I work on AI + robotics: autonomous navigation, ROS2/PX4, vision‑based control, and GPU‑accelerated LLM/RAG systems.
+# About Me  
 
-I like building things that learn and move — from PX4 UAV pipelines and precision‑landing micro‑drones to multi‑modal LLM tutors running on A100 GPUs.
+Hi, I’m **Harshvardhan Sivasubramanian (Harsh)** — a Robotics Engineer passionate about building intelligent systems that bridge the gap between digital simulation and the real world.  
+
+I’m currently pursuing my **Master’s in Robotics and Autonomous Systems at Arizona State University** (graduating in May 2026), where I focus on robotic manipulation, perception, and autonomous control. My journey started with a **B.Tech in Electrical and Electronics Engineering** from VIT, India, and has since grown through projects and experiences that combine creativity, engineering, and problem-solving.  
+
+Over the years, I’ve worked on projects ranging from **maze-solving robots and drone landing systems** to **bio-inspired soft robots** and **digital twin perception systems**. I enjoy taking ideas from concept to working prototypes — whether it’s through **ROS/ROS2, PX4, computer vision, SLAM, or motion planning**.  
+
+I also bring industry experience from my time at **Light Colab**, where I designed and deployed smart lighting and automation systems that improved energy efficiency and user comfort in commercial and residential spaces.  
+
+What excites me most is the intersection of **software, hardware, and imagination** — finding ways to make robots see, think, and act with precision in dynamic environments.  
+
+When I’m not working on robotics, you’ll probably find me experimenting with new tech tools, exploring design ideas in Fusion 360, or just tinkering with projects that challenge me to learn something new.  
+
 
 If you’d like the full story, check my [resume] and projects on [GitHub]. I’m open to internships and collaborations.
 
@@ -21,39 +30,11 @@ If you’d like the full story, check my [resume] and projects on [GitHub]. I’
 
 <!--posts_list-->
 
-***
 
-## What I’m about
-
-_Make it work → make it robust → make it fast._
-{:.lead}
-
-- **Reduce toil**: automate repeatable stuff and document it.  
-- **Measure**: benchmarks > vibes (CPU↔GPU, latency, accuracy).  
-- **Iterate**: small loops, frequent demos, real‑world tests.
-
-## Recent projects
-
-- **AI‑Accelerated Multi‑Modal Tutor** — LLM+RAG with PDFs/videos, CPU→GPU code conversion and benchmarks on Sol (A100).  
-- **PX4‑based UAV Rock Detection & Localization** — ROS2 + Gazebo + YOLOv8 with TF transforms to global coords.  
-- **MyCobot Pro 600 Maze Solver** — vision (OpenCV) + IK (MATLAB) + TCP control.  
-- **DDGAN Synthetic Data** — latent manipulations + speed benchmarks for scalable image generation.  
-- **Parrot Minidrone Precision Landing** — onboard visual servoing with Simulink/Stateflow.
-
-## Elsewhere
-
-- Volunteered at **FIRST Robotics** (ASU, 2024).  
-- Hackathons: **Honeywell**, **NVIDIA AI Spark**, **Los Alamos** (2025).
-
-***
-
-Site by Teja V. V. Boddu — built with the Jekyll theme [Hydejack].
-
-***
 
 <!--author-->
 
 <!-- Links -->
 [resume]: /resume/
-[GitHub]: https://github.com/btvvardhan
+[GitHub]: https://github.com/harsh-siva
 [Hydejack]: https://hydejack.com
