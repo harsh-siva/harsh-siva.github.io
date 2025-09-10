@@ -2,8 +2,8 @@
 # Must be the same as `author` in `_config.yml`.
 # Change `author1` to your shortname.
 author1:
-  name:              Teja Vishnu Vardhan Boddu
-  email:             btvvardhan@gmail.com
+  name:              Harshvardhan Sivasubramanian
+  email:             harshofficial008@gmail.com
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
@@ -36,9 +36,9 @@ author1:
   # You can also provide an absolute URL (starting with https://) instead of usernames
   social:
     #twitter:         <username>
-    github:          btvvardhan
-    linkedin:        btvvardhan
-    email:           btvvardhan@gmail.com
+    github:          harsh-siva
+    linkedin:        harshvardhansivasubramanian
+    email:           harshofficial008@gmail.com
     # rss:             https://<url>/feed.xml
     # facebook:        <username>
     # google:          <number>
