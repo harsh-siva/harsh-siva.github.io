@@ -26,13 +26,6 @@ When I’m not working on robotics, you’ll probably find me experimenting with
 
 If you’d like the full story, check my [resume] and projects on [GitHub]. I’m open to internships and collaborations.
 
-***
-
-<!--posts_list-->
-
-
-
-<!--author-->
 
 <!-- Links -->
 [resume]: /resume/
